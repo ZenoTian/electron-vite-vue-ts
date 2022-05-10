@@ -1,4 +1,22 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "vue"
+  ],
+  // 禁用vetur，否则会有冲突
+  "vetur.validation.template": false,
+  // 不推荐安装Vue 3 Support - All In One
+  // 插件的自动格式化常与eslint冲突
+  // 且会附带一个与全局搜索快捷键冲突的格式化快捷键command+shift+f
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

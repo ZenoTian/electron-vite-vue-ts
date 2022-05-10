@@ -25,7 +25,9 @@ function watchMain(server) {
     name: 'electron-main-watcher',
     writeBundle() {
       electronProcess && electronProcess.kill()
-      electronProcess = spawn(electron, ['.'], { stdio: 'inherit', env })
+      setTimeout(() => {
+        electronProcess = spawn(electron.toString(), ['.'], { stdio: 'inherit', env })
+      }, 100)
     },
   }
 

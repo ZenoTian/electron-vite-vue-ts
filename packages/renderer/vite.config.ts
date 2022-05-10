@@ -1,27 +1,40 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import resolve from 'vite-plugin-resolve'
-import electron from 'vite-plugin-electron/renderer'
 import pkg from '../../package.json'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: process.env.NODE_ENV,
   root: __dirname,
+  resolve: {
+    alias: {
+      '~/': `${pathSrc}/`,
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "~/styles/element/index.scss" as *;',
+      },
+    },
+  },
   plugins: [
     vue(),
-    electron(),
-    resolve(
-      /**
-       * Here you can specify other modules
-       * 🚧 You have to make sure that your module is in `dependencies` and not in the` devDependencies`,
-       *    which will ensure that the electron-builder can package it correctly
-       */
-      {
-        // If you use electron-store, this will work - ESM format code snippets
-        'electron-store': 'const Store = require("electron-store"); export default Store;',
-      }
-    ),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass'
+        })
+      ],
+    })
   ],
   base: './',
   build: {
@@ -32,5 +45,5 @@ export default defineConfig({
   server: {
     host: pkg.env.VITE_DEV_SERVER_HOST,
     port: pkg.env.VITE_DEV_SERVER_PORT,
-  },
+  }
 })

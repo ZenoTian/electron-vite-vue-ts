@@ -1,6 +1,5 @@
 import { builtinModules } from 'module'
 import { defineConfig } from 'vite'
-import pkg from '../../package.json'
 
 export default defineConfig({
   root: __dirname,
@@ -17,9 +16,7 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'electron',
-        ...builtinModules,
-        // @ts-ignore
-        ...Object.keys(pkg.dependencies || {}),
+        ...builtinModules
       ],
     },
   },
