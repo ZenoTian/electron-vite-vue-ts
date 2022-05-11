@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 const pathSrc = path.resolve(__dirname, 'src')
+console.log('pathSrc', pathSrc)
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: process.env.NODE_ENV,
@@ -40,7 +41,7 @@ export default defineConfig({
   build: {
     outDir: '../../dist/renderer',
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: process.env.NODE_ENV !== 'production',
   },
   server: {
     host: pkg.env.VITE_DEV_SERVER_HOST,

@@ -4,8 +4,10 @@
   "main": "dist/main/index.cjs",
   "scripts": {
     "dev": "node scripts/watch.mjs",
-    "prebuild": "vue-tsc --noEmit --p packages/renderer/tsconfig.json && node scripts/build.mjs",
-    "build": "electron-builder",
+    "prebuild": "sh scripts/icon.sh",
+    "build": "vue-tsc --noEmit --p packages/renderer/tsconfig.json && node scripts/build.mjs",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
     "init": "git config core.hooksPath .git/hooks/ && rm -rf .git/hooks && npx simple-git-hooks",
     "commit": "./node_modules/.bin/idss-git-commit",
     "verify-commit-message": "./node_modules/.bin/idss-git-verify-commit-message",
@@ -15,13 +17,11 @@
     "node": ">=14.17.0"
   },
   "devDependencies": {
-    "@element-plus/icons": "^0.0.11",
     "@element-plus/icons-vue": "^1.1.4",
     "@idss/git-commit-cli": "^1.0.7",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "@vitejs/plugin-vue": "^2.3.2",
-    "about-window": "^1.15.2",
     "commitizen": "^4.2.4",
     "electron": "18.2.0",
     "electron-builder": "^23.0.3",
