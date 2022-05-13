@@ -1,10 +1,16 @@
 import { join } from 'path'
 import { builtinModules } from 'module'
 import { defineConfig } from 'vite'
-import pkg from '../../package.json'
+
+import { root } from '../../paths'
 
 export default defineConfig({
   root: __dirname,
+  resolve: {
+    alias: {
+      '~': root,
+    },
+  },
   build: {
     outDir: '../../dist/preload',
     emptyOutDir: true,
@@ -20,12 +26,7 @@ export default defineConfig({
         entryFileNames: '[name].cjs',
         manualChunks: {},
       },
-      external: [
-        'electron',
-        ...builtinModules,
-        // @ts-ignore
-        ...Object.keys(pkg.dependencies || {}),
-      ],
+      external: ['electron', ...builtinModules],
     },
   },
 })

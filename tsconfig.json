@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -8,9 +9,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "strict": true,
-    "paths": {},
+    "paths": {
+      "@/*": ["packages/renderer/src/*"],
+      "~/*": ["./*"]
+    },
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true
   }

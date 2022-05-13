@@ -1,8 +1,14 @@
+import { root } from '../../paths'
 import { builtinModules } from 'module'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
   root: __dirname,
+  resolve: {
+    alias: {
+      '~': root
+    },
+  },
   build: {
     outDir: '../../dist/main',
     emptyOutDir: true,
