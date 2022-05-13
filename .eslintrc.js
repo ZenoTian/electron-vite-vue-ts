@@ -5,13 +5,11 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
-    'vue/setup-compiler-macros':true
+    'vue/setup-compiler-macros': true,
   },
-  'parser': 'vue-eslint-parser',
-  parserOptions: { 'parser': '@typescript-eslint/parser' },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  parser: 'vue-eslint-parser',
+  parserOptions: { parser: '@typescript-eslint/parser' },
+  plugins: ['prettier', '@typescript-eslint'],
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
@@ -21,17 +19,10 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': [
       'error',
-      // we are only using this rule to check for unused arguments since TS
-      // catches unused variables but not args.
-      { varsIgnorePattern: '.*', args: 'none' }
+      { varsIgnorePattern: '.*', args: 'none' },
     ],
     '@typescript-eslint/no-var-requires': 'off',
-    quotes: ['warn', 'single'],
-    semi: ['error', 'never'],
+    'prettier/prettier': 'error',
   },
-  ignorePatterns: [
-    'node_modules/**',
-    '!.cz-config.js',
-    'dist/**'
-  ]
+  ignorePatterns: ['node_modules/**', '!.cz-config.js', 'dist/**'],
 }
