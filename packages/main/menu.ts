@@ -1,5 +1,5 @@
 import { app, Menu } from 'electron'
-import about from './window/about'
+// import about from './window/about'
 
 export default function setMenu() {
   if (process.platform === 'darwin') {
@@ -9,7 +9,7 @@ export default function setMenu() {
         submenu: [
           {
             label: 'About',
-            click: about,
+            // click: about,
           },
           { type: 'separator' },
           { role: 'services' },

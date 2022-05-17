@@ -1,4 +1,4 @@
-import { root } from '../../paths'
+import { root } from '../common/runtime'
 import { builtinModules } from 'module'
 import { defineConfig } from 'vite'
 
@@ -6,7 +6,7 @@ export default defineConfig({
   root: __dirname,
   resolve: {
     alias: {
-      '~': root
+      '~': root,
     },
   },
   build: {
@@ -20,10 +20,7 @@ export default defineConfig({
       fileName: () => '[name].cjs',
     },
     rollupOptions: {
-      external: [
-        'electron',
-        ...builtinModules
-      ],
+      external: ['electron', ...builtinModules],
     },
   },
 })

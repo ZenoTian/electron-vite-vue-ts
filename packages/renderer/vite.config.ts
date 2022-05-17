@@ -5,7 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-import { renderSrc, root } from '../../paths'
+import { renderSrc, root } from '../common/runtime'
 import pkg from '../../package.json'
 
 // https://vitejs.dev/config/
