@@ -3,6 +3,7 @@ import { release } from 'os'
 import * as mainWin from './window/main'
 import setMenu from './menu'
 import setTray from './tray'
+import initIpc from './init-ipc'
 
 // Disable GPU Acceleration for Windows 7 禁用硬件加速
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -22,6 +23,7 @@ if (!lock) {
     mainWin.createWindow()
     setMenu()
     setTray()
+    initIpc()
   })
 
   app.on('second-instance', (event, commandLine, workingDirectory) => {
@@ -33,7 +35,7 @@ if (!lock) {
     // window时如果全部关闭就退出 app
     if (process.platform !== 'darwin') app.quit()
   })
-  
+
   app.on('activate', () => {
     /**
      * 当应用被激活
