@@ -1,12 +1,13 @@
 {
-  "name": "electron-template",
+  "title": "IDSS桌面应用",
   "version": "1.0.0",
+  "description": "资产2.0",
   "main": "dist/main/index.cjs",
   "homepage": "https://www.idss-cn.com",
-  "description": "资产2.0",
+  "copyright": "copyright",
+  "name": "electron-template",
   "author": "IDSS-FED",
   "private": true,
-  "copyright": "copyright",
   "scripts": {
     "dev": "node scripts/watch.mjs",
     "prebuild": "sh scripts/icon.sh",
