@@ -1,5 +1,3 @@
-import { root } from '../../common/runtime'
-import { join } from 'path'
 /**
  * 全局通用的ipc操作
  */

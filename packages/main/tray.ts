@@ -8,7 +8,7 @@ let tray: Tray
 export default function setTray() {
   if (process.platform === 'darwin') {
     // Mac图片需要1倍图(32*32)2倍图@2x(64*64)
-    tray = new Tray(path.resolve(__dirname, '../../resources/icon.png'))
+    tray = new Tray(path.resolve(__dirname, '../../resources/icon/icon.png'))
     tray.on('right-click', () => {
       const contextMenu = Menu.buildFromTemplate([
         {
