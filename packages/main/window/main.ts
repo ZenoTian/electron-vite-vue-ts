@@ -8,7 +8,7 @@ export function createWindow() {
   win = new BrowserWindow({
     title: '主窗口',
     webPreferences: {
-      preload: join(__dirname, '../preload/index.cjs')
+      preload: join(__dirname, '../preload/index.cjs'),
     },
   })
 
@@ -25,6 +25,12 @@ export function createWindow() {
 
   win.on('ready-to-show', () => {
     win?.show()
+  })
+
+  // Test active push message to Renderer-process
+  win.webContents.on('did-finish-load', () => {
+    // 监听加载结束事件
+    win?.webContents.send('preload-loaded')
   })
 
   if (app.isPackaged || process.env.NODE_ENV === 'production') {

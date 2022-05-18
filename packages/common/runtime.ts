@@ -25,5 +25,3 @@ export const fileEntry = (fileName: string): string =>
 export const mainEnrty = fileEntry('index.html')
 
 export const aboutEnrty = fileEntry('about.html')
-
-export const preload = join(root, '../preload/index.cjs')

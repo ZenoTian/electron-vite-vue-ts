@@ -15,6 +15,7 @@ export type InvokeHandler = {
   getAppInfo: (event: Electron.IpcMainInvokeEvent) => AppInfo
 }
 
+export type InvokeKeys = FunctionPropertyNames<InvokeHandler>
 export interface AppInfo {
   title: string
   description: string
@@ -26,7 +27,6 @@ export interface AppInfo {
 export default <InvokeHandler>{
   openExternal: (event, url) => shell.openExternal(url),
   getAppInfo: () => ({
-    icon: join(root, '/resources/icon.png'),
     title: pkg.title,
     description: pkg.description,
     homepage: pkg.homepage,

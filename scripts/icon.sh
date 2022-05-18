@@ -22,10 +22,15 @@ sips -z 1024 1024 ${logoPng} --out ${iconsDir}/icon_512x512@2x.png;
 # mac安装包使用
 iconutil -c icns $iconsDir -o ${iconDir}icon.icns;
 # win窗口使用
-icotool -c $iconsDir/icon_256x256.png -o ${iconDir}icon.ico
+icotool -c $iconsDir/icon_128x128.png -o ${iconDir}icon.ico
 # mac窗口使用
 sips -z 32 32 ${logoPng} --out ${iconDir}icon.png;
 sips -z 64 64 ${logoPng} --out ${iconDir}icon@2x.png;
+
+# web项目使用
+cp ${logoPng} ./packages/renderer/public/images/;
+cp ${iconDir}icon.ico ./packages/renderer/public/favicon.ico;
+
 else
 echo 'icotool命令不存在，运行: brew install icoutils 安装 icoutils工具'
 fi

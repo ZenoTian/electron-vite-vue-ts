@@ -1,5 +1,5 @@
 import { app, Menu, Tray } from 'electron'
-// import about from './window/about'
+import about from './window/about'
 import * as main from './window/main'
 import * as path from 'path'
 
@@ -32,7 +32,7 @@ export default function setTray() {
     // 右键菜单
     const contextMenu = Menu.buildFromTemplate([
       { label: '打开' + app.name, click: main.show },
-      // { label: '关于' + app.name, click: about },
+      { label: '关于' + app.name, click: about },
       { type: 'separator' },
       {
         label: '退出',
