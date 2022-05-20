@@ -1,19 +1,20 @@
 /**
- * 全局通用的ipc操作
+ * 通过invoke的调用，需要返回给renderer的
  */
 
 import { shell } from 'electron'
 import pkg from '~/package.json'
 
-export type InvokeHandler = {
+export type AppInvoke = {
   openExternal: (
     event: Electron.IpcMainInvokeEvent,
     url: string
   ) => Promise<void>
-  getAppInfo: (event: Electron.IpcMainInvokeEvent) => AppInfo
+  getAppInfo: () => AppInfo
 }
 
-export type InvokeKeys = FunctionPropertyNames<InvokeHandler>
+export type InvokeKeys = FunctionPropertyNames<AppInvoke>
+
 export interface AppInfo {
   title: string
   description: string
@@ -22,7 +23,7 @@ export interface AppInfo {
   copyright: string
 }
 
-export default <InvokeHandler>{
+export const appInvoke: AppInvoke = {
   openExternal: (event, url) => shell.openExternal(url),
   getAppInfo: () => ({
     title: pkg.title,

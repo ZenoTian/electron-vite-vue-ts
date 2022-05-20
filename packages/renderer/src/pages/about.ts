@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const app = await window.electronApi.getAppInfo()
 
     const open = () => {
-      console.log(app['homepage'])
       window.electronApi.openExternal(app['homepage'])
     }
 

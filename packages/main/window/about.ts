@@ -40,7 +40,6 @@ export default function openAboutWindow() {
     win?.webContents.send('about-window:info', {})
   })
 
-  // Test active push message to Renderer-process
   win.webContents.on('did-finish-load', () => {
     // 监听加载结束事件
     win?.webContents.send('preload-loaded')
