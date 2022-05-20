@@ -1,4 +1,4 @@
 module.exports = {
-  "commit-msg": "npm run verify-commit-message"
-  // "pre-commit": "npx nano-staged",
+  "pre-commit": "npx nano-staged",
+  // "commit-msg": "npm run verify-commit-message"
 };

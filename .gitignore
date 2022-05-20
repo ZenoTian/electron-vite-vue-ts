@@ -9,3 +9,4 @@ tmp
 **/.tmp
 release
 icons.iconset
+.eslintcache

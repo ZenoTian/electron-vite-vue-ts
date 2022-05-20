@@ -18,10 +18,10 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      { varsIgnorePattern: '.*', args: 'none' },
-    ],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'no-unused-expressions': 'off',
+    '@typescript-eslint/no-unused-expressions': ['error'],
     '@typescript-eslint/no-var-requires': 'off',
     'prettier/prettier': 'error',
   },

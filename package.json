@@ -9,8 +9,11 @@
   "author": "IDSS-FED",
   "private": true,
   "scripts": {
+    "precommit": "echo GIT_PARAMS",
     "dev": "node scripts/watch.mjs",
     "prebuild": "sh scripts/icon.sh",
+    "typecheck:vue": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "build": "vue-tsc --noEmit --p packages/renderer/tsconfig.json && node scripts/build.mjs",
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "npm run build && electron-builder --mac",
