@@ -28,15 +28,17 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
+      dts: './auto-imports.d.ts',
       resolvers: [ElementPlusResolver()],
+      imports: ['vue', 'vue-router']
     }),
     Components({
       resolvers: [
         ElementPlusResolver({
           importStyle: 'sass',
-        }),
-      ],
-    }),
+        })
+      ]
+    })
   ],
   base: './',
   build: {

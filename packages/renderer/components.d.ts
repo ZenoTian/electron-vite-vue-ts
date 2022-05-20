@@ -18,7 +18,10 @@ declare module '@vue/runtime-core' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElTag: typeof import('element-plus/es')['ElTag']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     SideMenu: typeof import('./src/components/layouts/SideMenu.vue')['default']
+    Sub: typeof import('./src/components/sub.vue')['default']
   }
 }
 
