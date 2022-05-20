@@ -19,7 +19,14 @@
     "preinstall": "npx only-allow pnpm"
   },
   "gitHooks": {
-    "commit-msg": "npm run verify-commit-message"
+    "commit-msg": "npm run verify-commit-message",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=14.17.0"
