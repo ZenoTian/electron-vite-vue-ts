@@ -8,7 +8,9 @@
     "output": "release/${version}"
   },
   "files": [
-    "dist"
+    "resources",
+    "dist",
+    "entry.js"
   ],
   "mac": {
     "icon": "resources/icon/icon.icns",

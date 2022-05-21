@@ -20,6 +20,7 @@ export abstract class AbstractWindow {
     windowOptions: WindowOptions,
     browserWindowOptions: BrowserWindowConstructorOptions
   ) {
+    console.log('preload', join(__dirname, '../preload/index.cjs'))
     const window = new BrowserWindow({
       ...browserWindowOptions,
       webPreferences: {
@@ -28,6 +29,7 @@ export abstract class AbstractWindow {
     })
 
     if (app.isPackaged || isProduction) {
+      console.log(join(__dirname, `../renderer/${windowOptions.entry}.html`))
       window.loadFile(
         //TODO: 直接在runtime里切换算了。这里用loadURL。切换为file://协议
         join(__dirname, `../renderer/${windowOptions.entry}.html`)
@@ -35,6 +37,7 @@ export abstract class AbstractWindow {
     } else {
       const url = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
       window.loadURL(`${url}/${windowOptions.entry}`)
+      console.log('dev', url)
     }
 
     this.options = windowOptions
@@ -57,7 +60,9 @@ export abstract class AbstractWindow {
 
   public close() {
     if (!this.window?.isDestroyed()) {
-      this.options && (this.options.disableClose = false)
+      if (this.options?.disableClose) {
+        this.options.disableClose = false
+      }
       this.window?.close()
     }
   }
