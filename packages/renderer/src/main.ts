@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
 import 'element-plus/theme-chalk/src/message.scss'
 import 'normalize.css'
@@ -9,6 +10,7 @@ window.handler.preloadLoaded(() => {
 })
 
 createApp(App)
+  .use(createPinia())
   .mount('#app')
   .$nextTick(() => {
     window.removeLoading()

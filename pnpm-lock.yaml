@@ -16,6 +16,7 @@ specifiers:
   eslint-plugin-vue: ^8.7.1
   nano-staged: ^0.8.0
   normalize.css: ^8.0.1
+  pinia: ^2.0.14
   prettier: ^2.6.2
   sass: ^1.51.0
   simple-git-hooks: ^2.7.0
@@ -27,6 +28,9 @@ specifiers:
   vue: ^3.2.33
   vue-eslint-parser: ^8.3.0
   vue-tsc: ^0.34.11
+
+dependencies:
+  pinia: 2.0.14_typescript@4.6.4+vue@3.2.34
 
 devDependencies:
   '@element-plus/icons-vue': 1.1.4_vue@3.2.34
@@ -649,6 +653,10 @@ packages:
       '@vue/compiler-dom': 3.2.34
       '@vue/shared': 3.2.34
     dev: true
+
+  /@vue/devtools-api/6.1.4:
+    resolution: {integrity: sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.34:
     resolution: {integrity: sha512-OtsrL4/i6Md279pMhZ8wRijeDhPSdnXrH9wmqAcKDhVcp1L2kSWlgVVLa1jGIyyFYE806YiJNJiGBvXPGXMzxw==}
@@ -3835,6 +3843,24 @@ packages:
     dev: true
     optional: true
 
+  /pinia/2.0.14_typescript@4.6.4+vue@3.2.34:
+    resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      typescript: 4.6.4
+      vue: 3.2.34
+      vue-demi: 0.12.5_vue@3.2.34
+    dev: false
+
   /pinkie-promise/2.0.1:
     resolution: {integrity: sha1-ITXW36ejWMBprJsXh3YogihFD/o=}
     engines: {node: '>=0.10.0'}
@@ -4829,7 +4855,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.34
-    dev: true
 
   /vue-eslint-parser/8.3.0_eslint@8.15.0:
     resolution: {integrity: sha512-dzHGG3+sYwSf6zFBa0Gi9ZDshD7+ad14DGOdTLjruRVgZXe2J+DcZ9iUhyR48z5g1PqRa20yt3Njna/veLJL/g==}
