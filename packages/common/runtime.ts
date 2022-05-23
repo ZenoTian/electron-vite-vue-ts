@@ -15,8 +15,9 @@ export const resourcesDir = join(root, '/resources')
 
 export const trayLogo = join(resourcesDir, `/icon${isWin ? 'ico' : 'icns'}`)
 
-const devUrl = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
+export const devUrl = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`
 
+// TODO: 入口可以换成file://路径
 export const fileEntry = (fileName: string): string =>
   isProduction
     ? join(__dirname, `../renderer/${fileName}`)

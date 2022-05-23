@@ -11,14 +11,14 @@
     "dist"
   ],
   "mac": {
-    "icon": "resources/icon.icns",
+    "icon": "resources/icon/icon.icns",
     "artifactName": "${productName}_${version}.${ext}",
     "target": [
       "dmg"
     ]
   },
   "win": {
-    "icon": "resources/icon.ico",
+    "icon": "resources/icon/icon.ico",
     "target": [
       {
         "target": "nsis",

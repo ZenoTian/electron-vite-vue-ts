@@ -2,8 +2,7 @@
   <el-container>
     <el-header>Header</el-header>
     <el-container>
-      <el-aside width="200px">
-      </el-aside>
+      <el-aside width="200px"></el-aside>
       <el-container l-container>
         <el-main>
           <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />

@@ -1,11 +1,11 @@
+import { MainWindow } from './window/main'
 import { app, Menu, Tray } from 'electron'
 import about from './window/about'
-import * as main from './window/main'
 import * as path from 'path'
 
 let tray: Tray
 
-export default function setTray() {
+export default function setTray(main: MainWindow) {
   if (process.platform === 'darwin') {
     // Mac图片需要1倍图(32*32)2倍图@2x(64*64)
     tray = new Tray(path.resolve(__dirname, '../../resources/icon/icon.png'))

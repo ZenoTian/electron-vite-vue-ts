@@ -12,6 +12,14 @@ const curDate = ref('')
 const toast = () => {
   ElMessage.success('Hello')
 }
+
+const getAppInfo = async () => {
+  let res = await window.electronApi.getAppInfo()
+  console.log(res)
+}
+const setTitle = () => {
+  window.electronApi.setTitle('测试')
+}
 </script>
 
 <template>
@@ -25,8 +33,8 @@ const toast = () => {
 
   <!-- example components -->
   <el-button @click="toast">El Message</el-button>
-  <el-button type="primary" @click="count++">count is: {{ count }}</el-button>
-  <el-button type="success" @click="count++">count is: {{ count }}</el-button>
+  <el-button type="primary" @click="getAppInfo">获取app信息</el-button>
+  <el-button type="success" @click="setTitle">修改标题</el-button>
   <el-button type="warning" @click="count++">count is: {{ count }}</el-button>
   <el-button type="danger" @click="count++">count is: {{ count }}</el-button>
   <el-button type="info" @click="count++">count is: {{ count }}</el-button>
