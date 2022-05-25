@@ -9,3 +9,15 @@ tmp
 **/.tmp
 release
 icons.iconset
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+/* sonarqube */
+.scannerwork/
