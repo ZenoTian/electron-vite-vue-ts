@@ -2,16 +2,20 @@
   "title": "IDSS桌面应用",
   "version": "1.0.0",
   "description": "观大千数据，安无尽网络",
-  "main": "dist/main/index.cjs",
+  "main": "entry.js",
   "homepage": "https://www.idss-cn.com",
   "copyright": "copyright",
   "name": "electron-template",
   "author": "IDSS-FED",
   "private": true,
   "scripts": {
+    "start": "NODE_ENV=production ./node_modules/.bin/electron ./entry.js",
     "dev": "node scripts/watch.mjs",
+    "typecheck:vue": "vue-tsc --noEmit -p packages/renderer/tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "prebuild": "sh scripts/icon.sh",
-    "build": "vue-tsc --noEmit --p packages/renderer/tsconfig.json && node scripts/build.mjs",
+    "postbuild": "./node_modules/.bin/electron ./bytecode.js",
+    "build": "node scripts/build.mjs",
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "npm run build && electron-builder --mac",
     "init": "git config core.hooksPath .git/hooks/ && rm -rf .git/hooks && npx simple-git-hooks",
@@ -31,6 +35,10 @@
   },
   "engines": {
     "node": ">=14.17.0"
+  },
+  "dependencies": {
+    "bytenode": "^1.3.6",
+    "pinia": "^2.0.14"
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^1.1.4",
@@ -70,8 +78,5 @@
     "vite",
     "vue3",
     "vue"
-  ],
-  "dependencies": {
-    "pinia": "^2.0.14"
-  }
+  ]
 }

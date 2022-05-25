@@ -1,8 +1,8 @@
 import { domReady } from './utils'
 import { useLoading } from './loading'
 import { contextBridge, ipcRenderer } from 'electron'
-import { InvokeKeys, appInvoke } from '../main/ipc/app-invoke'
-import { windowHandler, HandlerKeys } from '../main/ipc/window-handler'
+import { appInvoke } from '../main/ipc/app-invoke'
+import { windowHandler } from '../main/ipc/window-handler'
 
 const { appendLoading, removeLoading } = useLoading()
 domReady().then(appendLoading)
