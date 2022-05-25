@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import SubComponent from './sub.vue'
 import { ElMessage } from 'element-plus'
 
 defineProps<{ msg: string }>()
@@ -78,6 +78,7 @@ const setTitle = () => {
       unplugin-element-plus/examples/vite
     </a>
   </p>
+  <sub-component></sub-component>
 </template>
 
 <style>

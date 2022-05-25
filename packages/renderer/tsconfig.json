@@ -9,6 +9,7 @@
   },
   "include": [
     "src", 
-    "../preload/global.d.ts"
+    "../preload/global.d.ts",
+    "./auto-imports.d.ts"
   ]
 }
